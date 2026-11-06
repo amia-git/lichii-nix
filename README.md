@@ -1,5 +1,7 @@
 # lichii-nix
 
+[![Build release and publish to Cachix](https://github.com/amia-git/lichii-nix/actions/workflows/release.yml/badge.svg)](https://github.com/amia-git/lichii-nix/actions/workflows/release.yml)
+
 Nix packaging for [Lichii](https://github.com/zortos293/Lichii), a Nintendo Switch 2
 emulator.
 
