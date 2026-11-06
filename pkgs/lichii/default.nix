@@ -29,13 +29,16 @@
   openssl,
   opus,
   qt6,
-  SDL3,
+  qt6Packages,
+  sdl3,
   spirv-headers,
   spirv-tools,
   udev,
   vulkan-headers,
   vulkan-loader,
+  vulkan-memory-allocator,
   vulkan-utility-libraries,
+  wayland,
   xbyak,
   zlib,
   zstd,
@@ -84,24 +87,23 @@ stdenv.mkDerivation (finalAttrs: {
     qt6.qtbase
     qt6.qtmultimedia
     qt6.qtwayland
-    qt6.qttools
-    qt6.qtcharts
-    qt6.qtwebengine
     qt6.qt5compat
-    SDL3
+    qt6Packages.quazip
+    sdl3
     spirv-headers
     spirv-tools
     udev
     vulkan-headers
     vulkan-loader
+    vulkan-memory-allocator
     vulkan-utility-libraries
+    wayland
     xbyak
     zlib
     zstd
   ];
 
   cmakeFlags = [
-    (lib.cmakeFeature "CMAKE_BUILD_TYPE" "Release")
     (lib.cmakeBool "ENABLE_QT" true)
     (lib.cmakeBool "YUZU_USE_BUNDLED_QT" false)
     (lib.cmakeBool "YUZU_CMD" true)
@@ -126,6 +128,9 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/zortos293/Lichii";
     license = lib.licenses.gpl3Plus;
     mainProgram = "lichii";
-    platforms = [ "x86_64-linux" "aarch64-linux" ];
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
   };
 })

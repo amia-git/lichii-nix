@@ -1,10 +1,7 @@
-{
-  mkShell,
-  pkgs,
-  ...
-}:
+{ pkgs }:
 
-mkShell {
+pkgs.mkShell {
+  inputsFrom = [ (pkgs.callPackage ./default.nix { }) ];
   packages = with pkgs; [
     cmake
     ninja
@@ -12,5 +9,6 @@ mkShell {
     python3
     git
     jq
+    ccache
   ];
 }
