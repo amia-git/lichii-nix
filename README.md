@@ -42,3 +42,7 @@ compiling available builds locally, then run Lichii:
 cachix use amia-git
 nix run github:amia-git/lichii-nix
 ```
+
+## License
+
+Licensed under the [GNU General Public License v3.0](LICENSE), matching Lichii.
