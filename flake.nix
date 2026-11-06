@@ -13,6 +13,8 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      nixosModules.default = import ./nixos/module.nix { inherit self; };
+
       packages = forAllSystems (system: {
         lichii = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/lichii { };
         default = self.packages.${system}.lichii;
